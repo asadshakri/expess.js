@@ -1,17 +1,17 @@
+const productService=require('../services/productServices');
 const fetchProducts=(req,res)=>{
-    console.log("Fetching all products....");
-    res.send("Here is the list of products!");
+    let result=productService.getAllProducts();
+    res.send(result);
 }
 
 const addProduct= (req,res)=>{
-    console.log(`Received a new Product`);
-    res.send("Product has been added!");
+    let result=productService.addNewProduct();
+    res.send(result);
 }
 
 const fetchProductById=(req,res)=>{
-    const productId=req.params.id;
-    console.log(`Fetching details of product with id: ${productId}`);
-    res.send(`Details of product with id: ${productId}`);
+    let result=productService.getProductById(req.params.id);
+    res.send(result);
 }
 
 module.exports={
