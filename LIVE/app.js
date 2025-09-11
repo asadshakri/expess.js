@@ -3,7 +3,8 @@ const app=express();
 const port=3000;
 const productRouter=require('./routes/productRoutes');
 
-
+app.use(express.static('public'));
+app.use(express.json());
 app.use("/api/products",productRouter);
 
 app.listen(port,()=>{   
